@@ -11,6 +11,7 @@ require_once "function/helper.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weshop Productly | Gadget & Elektronik</title>
+    <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@ require_once "function/helper.php";
                     <a href="<?= BASE_URL; ?>index.php?page=login">Login</a>
                     <a href="<?= BASE_URL; ?>index.php?page=register">Register</a>
                 </div>
-                <a href="<?= BASE_URL;?>index.php?page=keranjang">
+                <a href="<?= BASE_URL;?>index.php?page=keranjang" id="button-keranjang">
                     <img src="<?= BASE_URL;?>img/cart.png" alt="">
                 </a>
             </div>
