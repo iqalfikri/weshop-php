@@ -46,6 +46,11 @@ body {
     vertical-align: bottom;
 }
 
+#container #content {
+    padding: 10px 0px;
+    overflow: hidden;
+}
+
 #container #footer {
     background: #1E5475;
     padding: 10px ;

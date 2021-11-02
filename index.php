@@ -1,6 +1,7 @@
 <?php
 require_once "function/helper.php";
 
+$page = isset($_GET['page']) ? $_GET['page'] : false ;
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +33,14 @@ require_once "function/helper.php";
             </div>
         </div>
         <div id="content">
-
+            <?php 
+                    $filename = "$page.php";
+                    if (file_exists($filename)) {
+                        include_once($filename);
+                    } else {
+                        echo "Halaman tidak ditemukan";
+                    }
+                ?>
         </div>
         <div id="footer">
             <p>Copyright iqal 2021</p>
