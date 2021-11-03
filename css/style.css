@@ -116,3 +116,94 @@ body {
     margin-bottom: 10px;
     font-size: 11px;
 }
+
+#bg-page-profile {
+    overflow: hidden;
+}
+
+#menu-profile {
+    float: left;
+    width: 245px;
+    background: #1E5474;
+}
+
+#menu-profile ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+#menu-profile ul li a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+
+}
+
+#menu-profile ul li a:hover,
+#menu-profile ul li a.active {
+    background: orange;
+}
+
+#profile-content {
+    float: left;
+    width: 835px;
+    padding: 10px;
+    background: white;
+}
+
+.table-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-list tr {
+    border-bottom: 1px solid #1e5474;
+}
+
+.table-list tr.baris-title {
+    background: #E6E6E6;
+}
+
+.table-list tr th,
+.table-list tr td  {
+    padding: 10px 7px;
+}
+
+.kolom-nomor {
+    width: 20px;
+    text-align: center;
+}
+
+.tengah {
+    text-align: center;
+}
+
+.kiri {
+    text-align: left;
+}
+
+.kanan {
+    text-align: right;
+}
+
+#frame-tambah {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.tombol-action {
+    background: #1e5474;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 3px;
+    font-size: 9px;
+}
+
+.tombol-action:hover {
+	background:orange;
+}

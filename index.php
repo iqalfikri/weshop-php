@@ -1,6 +1,7 @@
 <?php
+    require_once "function/koneksi.php";
     require_once "function/helper.php";
-
+    
     session_start();
     $page = isset($_GET['page']) ? $_GET['page'] : false ;
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
