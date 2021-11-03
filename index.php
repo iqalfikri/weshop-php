@@ -12,6 +12,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : false ;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weshop Productly | Gadget & Elektronik</title>
+    <link rel="icon" type="image/x-icon" href="<?= BASE_URL; ?>img/weshop_icon.svg" />
     <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
 </head>
 
