@@ -1,7 +1,13 @@
 <?php
-require_once "function/helper.php";
+    require_once "function/helper.php";
 
-$page = isset($_GET['page']) ? $_GET['page'] : false ;
+    session_start();
+    $page = isset($_GET['page']) ? $_GET['page'] : false ;
+    $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
+    $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : false;
+    $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +31,16 @@ $page = isset($_GET['page']) ? $_GET['page'] : false ;
 
             <div id="menu">
                 <div id="user">
-                    <a href="<?= BASE_URL; ?>index.php?page=login">Login</a>
-                    <a href="<?= BASE_URL; ?>index.php?page=register">Register</a>
+                    <?php
+                        if ($user_id) {
+                            echo "Hi <b>$nama</b>, 
+                            <a href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=list'>My Profile</a>
+                            <a href='".BASE_URL."logout.php'>Logout</a>";
+                        } else {
+                            echo "<a href='". BASE_URL."index.php?page=login'>Login</a>";
+                            echo "<a href='". BASE_URL."index.php?page=register'>Register</a>";
+                        }
+                    ?>
                 </div>
                 <a href="<?= BASE_URL;?>index.php?page=keranjang" id="button-keranjang">
                     <img src="<?= BASE_URL;?>img/cart.png" alt="">

@@ -25,6 +25,7 @@ body {
 
 #container #header #menu #user {
     float: left;
+    color: white;
 }
 
 #container #header #menu #user a {
@@ -32,6 +33,7 @@ body {
     padding-right: 5px;
     margin-top: 5px;
     display: inline-block;
+    cursor: pointer;
     text-decoration: none;
 }
 
