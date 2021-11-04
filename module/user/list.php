@@ -1,7 +1,7 @@
 <?php
     $no=1;
       
-    $queryAdmin = mysqli_query($koneksi, "SELECT * FROM user ORDER BY nama ASC");
+    $queryAdmin = mysqli_query($db, "SELECT * FROM user ORDER BY nama ASC");
       
     if(mysqli_num_rows($queryAdmin) == 0)
     {

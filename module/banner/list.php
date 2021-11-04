@@ -1,11 +1,12 @@
 <div id="frame-tambah">
-	<a class="tombol-action" href="<?php echo BASE_URL."index.php?page=my_profile&module=banner&action=form"; ?>">+ Tambah Banner</a>
+    <a class="tombol-action" href="<?= BASE_URL."index.php?page=my_profile&module=banner&action=form"; ?>">+ Tambah
+        Banner</a>
 </div>
 
 <?php
     $no=1;
         
-    $queryBanner = mysqli_query($koneksi, "SELECT * FROM banner ORDER BY banner_id DESC");
+    $queryBanner = mysqli_query($db, "SELECT * FROM banner ORDER BY banner_id DESC");
         
     if(mysqli_num_rows($queryBanner) == 0)
     {

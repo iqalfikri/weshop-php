@@ -1,6 +1,6 @@
 <?php
-    include("../../function/koneksi.php");   
-    include("../../function/helper.php");   
+require_once "../../function/koneksi.php";
+require_once "../../function/helper.php";
      
     $user_id = $_GET['user_id'];
 	
@@ -11,7 +11,7 @@
 	$level = $_POST["level"];
 	$status = $_POST["status"];	
 
-	mysqli_query($koneksi, "UPDATE user SET nama='$nama',
+	mysqli_query($db, "UPDATE user SET nama='$nama',
 											   email='$email',
 											   phone='$phone',
 											   alamat='$alamat',
