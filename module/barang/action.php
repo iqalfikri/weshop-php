@@ -18,7 +18,7 @@
     move_uploaded_file($_FILES["file"]["tmp_name"], "../../img/barang/".$nama_file);
 
     if ($button == "Add") {
-        $query = mysqli_query($db, "INSERT INTO barang VALUES('$kategori_id', '$nama_barang','$spesifikasi', '$nama_file','$harga', '$stok','$status')");
+        $query = mysqli_query($db, "INSERT INTO barang (kategori_id, nama_barang, spesifikasi, gambar, harga, stok, status) VALUES('$kategori_id','$nama_barang','$spesifikasi', '$nama_file','$harga', '$stok','$status')");
         if (!$query) {
             die("Query gagal dijalankan: " . mysqli_errno($db) .
                 " - " . mysqli_error($db));
