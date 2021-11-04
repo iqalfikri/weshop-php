@@ -9,13 +9,14 @@
     $button = $_POST['button'];
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
+    $update_gambar = "";
+    
+    if (!empty($_FILES["file"]["name"])) {
+        $nama_file = $_FILES["file"]["name"];
+        move_uploaded_file($_FILES["file"]["tmp_name"], "../../img/barang/".$nama_file);
 
-    $nama_file = $_FILES["file"]["name"];
-
-    // var_dump($nama_file);
-    // die;
-
-    move_uploaded_file($_FILES["file"]["tmp_name"], "../../img/barang/".$nama_file);
+        $update_gambar = ", gambar='$nama_file'";
+    }
 
     if ($button == "Add") {
         $query = mysqli_query($db, "INSERT INTO barang (kategori_id, nama_barang, spesifikasi, gambar, harga, stok, status) VALUES('$kategori_id','$nama_barang','$spesifikasi', '$nama_file','$harga', '$stok','$status')");
@@ -23,11 +24,10 @@
             die("Query gagal dijalankan: " . mysqli_errno($db) .
                 " - " . mysqli_error($db));
         }
-    } 
-    // else if ($button == "Update") {
-    //     $kategori_id = $_GET['kategori_id'];
-    //    mysqli_query($db, "UPDATE kategori SET kategori='$kategori', status='$status' WHERE kategori_id='$kategori_id'");
-    // }
+    } else if ($button == "Update") {
+        $barang_id = $_GET['barang_id'];
+       mysqli_query($db, "UPDATE barang SET kategori_id='$kategori_id',nama_barang='$nama_barang',spesifikasi='$spesifikasi',harga='$harga',stok='$stok',status='$status'$update_gambar  WHERE barang_id='$barang_id'");
+    }
 
     header("location:".BASE_URL."index.php?page=my_profile&module=barang&action=list");
 ?>
