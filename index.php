@@ -22,6 +22,22 @@
     <title>Weshop Productly | Gadget & Elektronik</title>
     <link rel="icon" type="image/x-icon" href="<?= BASE_URL; ?>img/weshop_icon.svg" />
     <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>css/banner.css">
+
+    <script src="<?= BASE_URL; ?>js/jquery-3.1.1.min.js"></script>
+    <script src="<?= BASE_URL; ?>js/slidesjs/source/jquery.slides.min.js"></script>
+    <script>
+    $(function() {
+        $('#slides').slidesjs({
+            height: 350,
+            play: {
+                auto: true,
+                interval: 3000
+            },
+            navigation: false
+        });
+    });
+    </script>
 </head>
 
 <body>
