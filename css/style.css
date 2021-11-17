@@ -42,6 +42,7 @@ body {
     background: orange;
     padding: 2px 10px;
     border-radius: 4px;
+    text-decoration: none;
 }
 
 #container #header #menu #button-keranjang img {
@@ -337,11 +338,12 @@ body {
     color: red;
 }
 
-#detail-barang  #frame-harga a {
-    background: #1E5474;
+#detail-barang #frame-harga a {
+    background: #1e5474;
     color: white;
     text-decoration: none;
     padding: 5px 10px;
+    display: inline-block;
     float: right;
     border-radius: 3px;
 }
@@ -353,4 +355,54 @@ body {
 #detail-barang #keterangan {
     margin: 20px 0px;
     
+}
+
+.total-barang {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.update-quantity{
+    width: 30px;
+    text-align:  center;
+}
+
+.kanan.hapus_item {
+    position: relative;
+}
+
+.kanan.hapus_item a {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-decoration: none;
+    color: #1e5474;
+}
+
+.kanan.hapus_item a:hover {
+    color:orange;
+}
+
+#frame-button-keranjang a {
+    background: #1E5474;
+    color: white;
+    text-decoration: none;
+    padding: 7px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+#frame-button-keranjang a:hover {
+    background: orange;
+}
+
+#lanjut-belanja {
+    float: left;
+}
+
+#lanjut-pemesanan {
+    float: right;
 }

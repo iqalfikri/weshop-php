@@ -8,8 +8,9 @@
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
     $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : false;
     $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
-
-    
+    $keranjang = isset($_SESSION['keranjang']) ? $_SESSION['keranjang'] : array();
+    $totalBarang = count($keranjang);
+ 
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +62,12 @@
                     ?>
                 </div>
                 <a href="<?= BASE_URL;?>index.php?page=keranjang" id="button-keranjang">
-                    <img src="<?= BASE_URL;?>img/cart.png" alt="">
+                    <img src="<?= BASE_URL;?>img/cart.png">
+                    <?php
+                        if($totalBarang != 0) {
+                            echo"<span class='total-barang'>$totalBarang</span>";
+                        }
+                    ?>
                 </a>
             </div>
         </div>
