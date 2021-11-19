@@ -40,7 +40,8 @@ if ($totalBarang == 0) {
     }
     echo "<tr>
                      <td colspan='5' class='kanan'><b>Sub Total</b></td>
-                     <td class='kanan'><b>".rupiah($subtotal)."</b></td>";
+                     <td class='kanan'><b>".rupiah($subtotal)."</b></td>
+                </tr>";
 
     echo "</table>";
     echo "<div id='frame-button-keranjang'>
