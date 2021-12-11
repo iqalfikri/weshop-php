@@ -51,7 +51,7 @@
         <table class="table-list">
             <tr>
                 <th class="kiri">Nama Barang</th>
-                <th class="tengah">Qty</th>
+                <th class="tengah">Quality</th>
                 <th class="kanan">Total</th>
             </tr>
             <?php
