@@ -10,4 +10,4 @@ unset($keranjang[$barang_id]);
 
 $_SESSION['keranjang'] = $keranjang;
 
-header("location: ".BASE_URL."index.php?page=keranjang");
+header("location: ".BASE_URL."keranjang.html");
