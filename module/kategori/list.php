@@ -5,7 +5,7 @@
 <?php
 
     $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
-    $data_per_halaman = 5;
+    $data_per_halaman = 2;
     $mulai_dari = ($pagination - 1) * $data_per_halaman;
     
     $queryKategori = mysqli_query($db, "SELECT * FROM kategori LIMIT $mulai_dari, $data_per_halaman");

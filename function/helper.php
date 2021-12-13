@@ -41,6 +41,11 @@ function pagination($query, $data_per_halaman, $pagination, $url)
 
         //membulatkan bilangan ke atas
         $total_halaman = ceil($total_data / $data_per_halaman);
+
+        $batasPosisiNomor = 6;
+        $batasJumlahHalaman = 10;
+        $mulaiPagination = 1;
+        $batasAkhirPagination = $total_halaman; 
         
         echo "<ul class='pagination'>";
 
@@ -48,8 +53,22 @@ function pagination($query, $data_per_halaman, $pagination, $url)
             $prev = $pagination - 1;
             echo "<li><a href='".BASE_URL."$url&pagination=$prev'><< Prev</a></li>";
         }
+
+        if ($total_halaman >= $batasJumlahHalaman) {
+         
+            if ($pagination > $batasPosisiNomor) {
+                $mulaiPagination = $pagination - ($batasPosisiNomor - 1);
+            }
+            
+            $batasAkhirPagination = ($mulaiPagination - 1) + $batasJumlahHalaman;
+            if ($batasAkhirPagination > $total_halaman) {
+                //set ulang
+                $batasAkhirPagination = $total_halaman; 
+            }
+        }
+
         
-        for ($i=1; $i <= $total_halaman ; $i++) { 
+        for ($i= $mulaiPagination; $i <= $batasAkhirPagination ; $i++) { 
             if ($pagination == $i) {
                 echo "<li><a class='active' href='".BASE_URL."$url&pagination=$i'>$i</a></li>";
             } else {
