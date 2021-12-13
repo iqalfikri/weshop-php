@@ -4,9 +4,12 @@
 </div>
 
 <?php
-    $no=1;
-        
-    $queryBanner = mysqli_query($db, "SELECT * FROM banner ORDER BY banner_id DESC");
+    
+    $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
+    $data_per_halaman = 3;
+    $mulai_dari = ($pagination - 1) * $data_per_halaman;
+
+    $queryBanner = mysqli_query($db, "SELECT * FROM banner ORDER BY banner_id DESC LIMIT $mulai_dari, $data_per_halaman");
         
     if(mysqli_num_rows($queryBanner) == 0)
     {
@@ -23,7 +26,7 @@
                     <th class='tengah'>Status</th>
                     <th class='tengah'>Action</th>
                  </tr>";
-    
+                 $no=1 + $mulai_dari;
             while($rowBanner=mysqli_fetch_array($queryBanner))
             {
                 echo "<tr>
@@ -38,5 +41,7 @@
             }
             
         echo "</table>";
+        $queryHitungBanner = mysqli_query($db, "SELECT * FROM banner");
+            pagination($queryHitungBanner, $data_per_halaman, $pagination, "index.php?page=my_profile&module=banner&action=list");
     }
 ?>

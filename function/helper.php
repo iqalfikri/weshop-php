@@ -34,3 +34,32 @@ $string .= "</div>";
 
 return $string;
 }
+
+function pagination($query, $data_per_halaman, $pagination, $url)
+{
+    $total_data = mysqli_num_rows($query);
+
+        //membulatkan bilangan ke atas
+        $total_halaman = ceil($total_data / $data_per_halaman);
+        
+        echo "<ul class='pagination'>";
+
+        if ($pagination > 1) {
+            $prev = $pagination - 1;
+            echo "<li><a href='".BASE_URL."$url&pagination=$prev'><< Prev</a></li>";
+        }
+        
+        for ($i=1; $i <= $total_halaman ; $i++) { 
+            if ($pagination == $i) {
+                echo "<li><a class='active' href='".BASE_URL."$url&pagination=$i'>$i</a></li>";
+            } else {
+                 echo "<li><a href='".BASE_URL."$url&pagination=$i'>$i</a></li>";
+            }
+        }
+
+        if ($pagination < $total_halaman) {
+            $next = $pagination + 1;
+            echo "<li><a href='".BASE_URL."$url&pagination=$next'>Next >></a></li>";
+        }
+        echo "</ul>";
+}
