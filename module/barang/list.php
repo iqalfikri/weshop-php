@@ -14,7 +14,7 @@
             <input type="hidden" name="page" value="<?= $_GET["page"]; ?>" />
             <input type="hidden" name="module" value="<?= $_GET["module"]; ?>" />
             <input type="hidden" name="action" value="<?= $_GET["action"]; ?>" />
-            <input type="text" name="search" value="<?= $search; ?>" />
+            <input type="text" name="search" value="<?= $search; ?>" placeholder="Cari nama barang ..." />
             <input type="submit" value="search" />
         </form>
     </div>

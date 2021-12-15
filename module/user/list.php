@@ -1,9 +1,30 @@
 <?php
+    $search = isset($_GET["search"]) ? $_GET["search"] : false;
+
+    $where = "";
+    $search_url = "";
+    if ($search) {
+        $search_url = "&search=$search";
+        $where = "WHERE nama LIKE'%$search%'";
+    }
+?>
+<div id="frame-tambah">
+    <div id="left">
+        <form action="<?= BASE_URL."index.php"?>" method="GET">
+            <input type="hidden" name="page" value="<?= $_GET["page"]; ?>" />
+            <input type="hidden" name="module" value="<?= $_GET["module"]; ?>" />
+            <input type="hidden" name="action" value="<?= $_GET["action"]; ?>" />
+            <input type="text" name="search" value="<?= $search; ?>" placeholder="Cari user ..." />
+            <input type="submit" value="search" />
+        </form>
+    </div>
+</div>
+<?php
    $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
    $data_per_halaman = 3;
    $mulai_dari = ($pagination - 1) * $data_per_halaman;
       
-    $queryAdmin = mysqli_query($db, "SELECT * FROM user ORDER BY nama ASC LIMIT $mulai_dari, $data_per_halaman");
+    $queryAdmin = mysqli_query($db, "SELECT * FROM user $where ORDER BY nama ASC LIMIT $mulai_dari, $data_per_halaman");
       
     if(mysqli_num_rows($queryAdmin) == 0)
     {
@@ -41,7 +62,7 @@
         //AKHIR DARI TABLE
         echo "</table>";
 
-        $queryHitungUser = mysqli_query($db, "SELECT * FROM user");
-        pagination($queryHitungUser, $data_per_halaman, $pagination, "index.php?page=my_profile&module=user&action=list");
+        $queryHitungUser = mysqli_query($db, "SELECT * FROM user $where");
+        pagination($queryHitungUser, $data_per_halaman, $pagination, "index.php?page=my_profile&module=user&action=list$search_url");
     }
 ?>

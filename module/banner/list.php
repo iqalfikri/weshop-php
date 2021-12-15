@@ -1,6 +1,27 @@
+<?php
+    $search = isset($_GET["search"]) ? $_GET["search"] : false;
+
+    $where = "";
+    $search_url = "";
+    if ($search) {
+        $search_url = "&search=$search";
+        $where = "WHERE banner LIKE'%$search%'";
+    }
+?>
 <div id="frame-tambah">
-    <a class="tombol-action" href="<?= BASE_URL."index.php?page=my_profile&module=banner&action=form"; ?>">+ Tambah
-        Banner</a>
+    <div id="left">
+        <form action="<?= BASE_URL."index.php"?>" method="GET">
+            <input type="hidden" name="page" value="<?= $_GET["page"]; ?>" />
+            <input type="hidden" name="module" value="<?= $_GET["module"]; ?>" />
+            <input type="hidden" name="action" value="<?= $_GET["action"]; ?>" />
+            <input type="text" name="search" value="<?= $search; ?>" placeholder="Cari banner ..." />
+            <input type="submit" value="search" />
+        </form>
+    </div>
+    <div id="right">
+        <a class="tombol-action" href="<?= BASE_URL."index.php?page=my_profile&module=banner&action=form"; ?>">+ Tambah
+            Banner</a>
+    </div>
 </div>
 
 <?php
@@ -9,7 +30,7 @@
     $data_per_halaman = 3;
     $mulai_dari = ($pagination - 1) * $data_per_halaman;
 
-    $queryBanner = mysqli_query($db, "SELECT * FROM banner ORDER BY banner_id DESC LIMIT $mulai_dari, $data_per_halaman");
+    $queryBanner = mysqli_query($db, "SELECT * FROM banner $where ORDER BY banner_id DESC LIMIT $mulai_dari, $data_per_halaman");
         
     if(mysqli_num_rows($queryBanner) == 0)
     {
@@ -41,7 +62,7 @@
             }
             
         echo "</table>";
-        $queryHitungBanner = mysqli_query($db, "SELECT * FROM banner");
-            pagination($queryHitungBanner, $data_per_halaman, $pagination, "index.php?page=my_profile&module=banner&action=list");
+        $queryHitungBanner = mysqli_query($db, "SELECT * FROM banner $where");
+            pagination($queryHitungBanner, $data_per_halaman, $pagination, "index.php?page=my_profile&module=banner&action=list$search_url");
     }
 ?>
