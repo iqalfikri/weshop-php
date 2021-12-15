@@ -202,8 +202,9 @@ body {
     cursor: pointer;
     text-decoration: none;
     margin-right: 3px;
+    margin-bottom: 3px;
     font-size: 9px;
-    display: block;
+    display: inline-block;
 }
 
 .tombol-action:hover {

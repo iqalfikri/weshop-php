@@ -55,6 +55,7 @@
                                 <td class='tengah'>$row[status]</td>
                                 <td class='tengah'>
                                         <a href='".BASE_URL."index.php?page=my_profile&module=barang&action=form&barang_id=$row[barang_id]' class='tombol-action'>Edit</a>
+                                        <a href='".BASE_URL."module/barang/action.php?button=Delete&barang_id=$row[barang_id]' class='tombol-action'>Delete</a>
                                 </td>
             </tr>";
             $no++;

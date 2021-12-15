@@ -2,20 +2,23 @@
  require_once "../../function/koneksi.php";
  require_once "../../function/helper.php";
      
-    $kota = $_POST['kota'];
-    $tarif = $_POST['tarif'];
-    $status = $_POST['status'];
-    $button = $_POST['button'];
-	
+ 	$button = isset($_POST['button']) ? $_POST['button'] : $_GET['button'];	
+	 $kota_id = isset($_GET['kota_id']) ? $_GET['kota_id'] : "";
+
+	 $kota = isset($_POST['kota']) ? $_POST['kota'] : false;
+	 $tarif = isset($_POST['tarif']) ? $_POST['tarif'] : false;
+	 $status = isset($_POST['status']) ? $_POST['status'] : false;
+    
 	if($button == "Add"){
 		mysqli_query($db, "INSERT INTO kota (kota, tarif, status) VALUES('$kota', '$tarif', '$status')");
 	}
 	else if($button == "Update"){
-		$kota_id = $_GET['kota_id'];
 		
 		mysqli_query($db, "UPDATE kota SET kota='$kota',
 												tarif='$tarif',
 												status='$status' WHERE kota_id='$kota_id'");
+	} else if ($button == "Delete") {
+		mysqli_query($db, "DELETE FROM kota WHERE kota_id='$kota_id'");
 	}
 	
 	header("location:" .BASE_URL."index.php?page=my_profile&module=kota&action=list");
