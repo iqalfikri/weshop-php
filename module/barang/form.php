@@ -86,4 +86,13 @@
 
 <script>
 CKEDITOR.replace("editor");
+
+// var roxyFileman = 'js/ckeditor/fileman/index.html';
+// $(function() {
+//     CKEDITOR.replace('editor', {
+//         filebrowserBrowseUrl: roxyFileman,
+//         filebrowserImageBrowseUrl: roxyFileman + '?type=image',
+//         removeDialogTabs: 'link:upload;image:upload'
+//     });
+// });
 </script>
