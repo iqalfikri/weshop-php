@@ -38,12 +38,15 @@
             <span><textarea name="alamat"><?= $alamat?></textarea></span>
         </div>
         <div class="element-form">
-            <label for="password">Password</label>
-            <span><input type="password" name="password"></span>
+            <div class="label-password">
+                <label for="password">Password</label>
+                <i class="btn-hide-show far fa-eye-slash" title="Show Password"></i>
+            </div>
+            <span><input type="password" name="password" class="input-password"></span>
         </div>
         <div class="element-form">
             <label for="password">Re-type Password</label>
-            <span><input type="password" name="re_password"></span>
+            <span><input type="password" name="re_password" class="input-password"></span>
         </div>
         <div class="element-form">
             <span><input type="submit" value="register"></span>

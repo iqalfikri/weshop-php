@@ -470,4 +470,8 @@ ul.pagination li a.active {
     float: right;
 }
 
+.label-password {
+    display: flex;
+    justify-content: space-between;
+}
 
